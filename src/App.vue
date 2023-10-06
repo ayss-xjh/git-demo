@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="showMyMessage">点我出现myMessage</button>
+    <!-- <myMessage /> -->
+    <slotTest>
+      <template #text>
+        <h1>我不好</h1>
+      </template>
+    </slotTest>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import slotTest from './components/SlotTest/slotTest.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // myMessage
+    slotTest
+  },
+  methods: {
+    showMyMessage() {
+      this.$prompt.open({
+        title: '你好'
+      })
+    }
   }
 }
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>
